@@ -235,7 +235,7 @@ if __name__ == "__main__":
                 # NOTE: some projects would configure their autogen.sh to actually run ./configure
                 # Though I'd prefer not to run ./configure if possible, because that would make it twice.
                 # Some projects (in GNOME projects at least) use $NOCONFIGURE env variable. So I set it.
-                command = './autogen.sh'
+                command = './autogen.sh' + ' '.join(sys.argv[arg_pos + 1:])
                 environ = os.environ
                 environ['NOCONFIGURE'] = '1'
                 sys.stdout.write('crossroad info: running "{}"\n'.format(command))
